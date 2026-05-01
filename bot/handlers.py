@@ -87,7 +87,7 @@ async def got_count(call: CallbackQuery, state: FSMContext):
     t = TEXTS[sessions[user_id].language]
     count = int(call.data.split("_")[1])
     sessions[user_id].question_count = count
-    await call.message.edit_text(f"{count} ✅\n\n{t['choose_level']}", reply_markup=level_keyboard())
+    await call.message.edit_text(f"{count} ✅\n\n{t['choose_level']}", reply_markup=level_keyboard(sessions[user_id].language))
     await state.set_state(QuizStates.waiting_for_level)
     await call.answer()
 

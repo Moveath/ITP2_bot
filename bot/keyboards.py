@@ -9,11 +9,17 @@ def language_keyboard():
     ])
 
 
-def level_keyboard():
+def level_keyboard(lang="lang_ru"):
+    levels = {
+        "lang_ru": ["🟢 Лёгкий", "🟡 Средний", "🔴 Сложный"],
+        "lang_en": ["🟢 Easy", "🟡 Medium", "🔴 Hard"],
+        "lang_kz": ["🟢 Жеңіл", "🟡 Орташа", "🔴 Қиын"],
+    }
+    texts = levels.get(lang, levels["lang_ru"])
     return InlineKeyboardMarkup(inline_keyboard=[
-        [InlineKeyboardButton(text="🟢 Лёгкий", callback_data="level_easy")],
-        [InlineKeyboardButton(text="🟡 Средний", callback_data="level_medium")],
-        [InlineKeyboardButton(text="🔴 Сложный", callback_data="level_hard")],
+        [InlineKeyboardButton(text=texts[0], callback_data="level_easy")],
+        [InlineKeyboardButton(text=texts[1], callback_data="level_medium")],
+        [InlineKeyboardButton(text=texts[2], callback_data="level_hard")],
     ])
 
 
@@ -30,7 +36,9 @@ def count_keyboard():
     ])
 
 
-def stop_keyboard():
+def stop_keyboard(lang="lang_ru"):
+    texts = {"lang_ru": "🛑 Стоп", "lang_en": "🛑 Stop", "lang_kz": "🛑 Тоқта"}
     return InlineKeyboardMarkup(inline_keyboard=[
-        [InlineKeyboardButton(text="🛑 Стоп", callback_data="stop")]
+        [InlineKeyboardButton(text=texts.get(
+            lang, "🛑 Стоп"), callback_data="stop")]
     ])
