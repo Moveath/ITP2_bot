@@ -54,3 +54,4 @@ class AdaptiveTest:
         if not all_data:
             return "No data for report."
         return self.llm.generate_final_report(all_data, language=lang)
+print("Elnur")

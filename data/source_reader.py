@@ -3,3 +3,4 @@ class SourceReader:
         if source_type == "text":
             return content
         raise NotImplementedError("Басқа түрлер 3-адамға жүктелген.")
+print("Elnur")

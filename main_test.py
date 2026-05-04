@@ -46,3 +46,5 @@ if qs:
     print(test.get_final_report())
 else:
     print("Вопросы не получены.")
+
+print("Elnur")
